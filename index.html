@@ -59,7 +59,7 @@
             background: var(--light-color);
             color: var(--text-color);
             line-height: 1.6;
-            padding-top: 80px;
+			padding-top: 80px;
             font-weight: 400;
         }
         
@@ -96,11 +96,10 @@
             z-index: 1000;
             padding: 15px 40px;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 20px rgba(0, 44, 43, 0.2);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
         }
         
         nav.scrolled {
-            padding: 12px 40px;
             background: var(--primary-color);
         }
         
@@ -177,81 +176,79 @@
             cursor: pointer;
         }
         
-        /* Hero Section */
-        .hero {
-            position: relative; /* necesario para el overlay */
-			height: 60vh;
-            background: url('assets/img/presentacion.png') center/cover repeat;
-			background-size: 80%;  /* Muestra más imagen - menos zoom */
-			background-position: center; /* centra el foco */		
-			display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            text-align: center;
-            color: white;
-            padding-left: 35vw;
-			overflow: hidden; /* evita fugas del overlay */
-        }
-		
-			
-		.hero-right {
-				width: 100%;                 /* ocupa mitad del hero */
-				text-align: center;         /* centra el texto dentro de ese bloque */
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-		}
-        
-        .hero-content h1 {
-            font-size: 1.7em;
-            margin-bottom: 10px;
-            /* 🎨 ESTÉTICO: Cambiado a blanco y sombra más fuerte para contraste */
-            color: white; 
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.8); 
-            font-weight: 800;
-        }
-        
-        .hero-content p {
-            font-size: 1.2em;
-            margin-bottom: 5px;
-            /* 🎨 ESTÉTICO: Cambiado a blanco y sombra más fuerte para contraste */
-            color: white;
-            text-shadow: 1px 1px 6px rgba(0,0,0,0.5); 
-            font-weight: 500;
-        }
-		
-		
-		
-		.hero {
-  height: 60vh;
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+  margin-top: -9px;
+  position: relative;
   background: url('assets/img/fondo.png') center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  padding: 0 4vw;
-  filter: brightness(1.3);
+  padding: 140px 20px 100px;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(232, 119, 34, 0.25);
+  backdrop-filter: blur(2px);
 }
 
 .hero-content-grid {
-  width: 100%;
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: auto;
   display: grid;
-  grid-template-columns: 40% 60%;
-  align-items: center;
-}
-
-.hero-left {
-  display: flex;
-  justify-content: center;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  text-align: center;
 }
 
 .hero-logo-big {
-  width: 70%;
+  width: 55%;
+  margin: auto;
 }
 
-.hero-right {
-  text-align: center;
+.typing-animation {
+  font-size: clamp(2rem, 5vw, 4.2rem);
+  color: white;
+  text-shadow: 2px 2px 10px rgba(0,0,0,.7);
+}
+
+.fade-in-up {
+  font-size: clamp(1.1rem, 2.5vw, 2.1rem);
+  color: var(--secondary-color);
+  margin-top: 10px;
+}
+
+.hero-cta {
+  margin-top: 30px;
   display: flex;
-  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  padding: 14px 28px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 700;
+  display: flex;
+  gap: 8px;
   align-items: center;
+}
+
+.cta-button.primary {
+  background: var(--secondary-color);
+  color: white;
+}
+
+.cta-button.secondary {
+  border: 2px solid white;
+  color: white;
 }
 
 /* OVERLAY NARANJA DIFUSO */
@@ -271,27 +268,17 @@
   z-index: 2;
 }
 
-       /* Animación de escritura */
-.typing-animation {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    /* 🎨 ESTÉTICO: Cambiado a blanco y sombra más fuerte para contraste */
-    color: white; 
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
-}
-
 .highlight {
     color: var(--secondary-color);
 }
 
-/* Animación fade in up */
-.fade-in-up {
- 	font-size: 1.7rem;
-	font-weight: 700;
-    /* 🎨 ESTÉTICO: Sombra mejorada */
-    text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
-    opacity: 0;
-    animation: fadeInUp 1s ease forwards 1s;
+.hero {
+  padding: 140px 20px 120px;
+}
+
+.hero-content-grid {
+  max-width: 100%;
+  padding: 0 5vw;
 }
 
 .hero .fade-in-up {
@@ -308,11 +295,11 @@
 }
 
 .cta-button {
-    padding: 0.7rem 1.2rem;
-    font-size: 0.85em;
+    padding: 1rem 2rem;
+    font-size: 1.05em;
     border-radius: 50px;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 700;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
@@ -597,6 +584,27 @@
     }
 }
 
+/* =====================================================
+   DESKTOP
+===================================================== */
+
+@media (min-width: 992px) {
+  .hero-content-grid {
+    grid-template-columns: 40% 60%;
+    text-align: center;
+  }
+
+  .hero-logo-big {
+    width: 80%;
+  }
+
+  .services-slider {
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: visible;
+  }
+}
+
 /* Responsive */
 @media (max-width: 1200px) {
     .platform-showcase {
@@ -624,19 +632,45 @@
     
     .timeline-item {
         flex-direction: column;
+		align-items: center;
         text-align: center;
         margin-bottom: 30px;
     }
     
     .timeline-marker {
         margin-right: 0;
-        margin-bottom: 15px;
+        margin-bottom: 12px;
     }
     
+	 .timeline-content {
+    text-align: center;
+    max-width: 320px;
+  }
+	
     .demo-button {
         padding: 12px 25px;
         font-size: 1em;
     }
+	
+	.collaborator-logo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .collaborator-logo img {
+    width: 40%;
+    height: 50px;
+  }
+  
+  .collaborators-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .collaborator-card {
+    width: 100%;
+    max-width: 260px;
+  }
 }
         
         /* Galería de Proyectos */
@@ -1006,7 +1040,126 @@
             .section-title p {
                 font-size: 1.1em;
             }
-        }
+			
+			 .typing-animation {
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+
+  .fade-in-up {
+    font-size: 1rem;
+          }
+		  
+		.hero-cta {
+    gap: 10px;
+  }
+
+  .cta-button {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+    border-radius: 32px;
+  }
+
+  .cta-button i {
+    font-size: 0.95rem;
+  }
+  .hero {
+    padding-top: 50px; /* separa bien del nav */
+  }
+
+  .hero-logo-big {
+    width: 45%;
+  }
+  
+  .collaborators-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .collaborator-card {
+    width: 100%;
+    max-width: 240px;
+  }
+
+  .collaborator-logo {
+    width: 90px;
+    height: 90px;
+  }
+
+  .collaborator-logo img {
+    width: 32px;
+    height: 32px;
+  }
+  
+}
+		
+/* ===== SLIDER QUE HACEMOS (FIX DEFINITIVO) ===== */
+
+.services-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* CONTENEDOR DESLIZABLE */
+.services-slider {
+    display: flex;
+    flex-wrap: nowrap;        /* 🔥 CLAVE */
+    gap: 25px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px 10px;
+    width: 100%;
+}
+
+/* Ocultar scrollbar */
+.services-slider::-webkit-scrollbar {
+    display: none;
+}
+.services-slider {
+    scrollbar-width: none;
+}
+
+/* TARJETAS */
+.service-card {
+    flex: 0 0 280px;          /* 🔥 CLAVE */
+    max-width: 280px;
+}
+
+/* FLECHAS */
+.services-arrow {
+    background: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 8px 25px rgba(40, 31, 22, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    position: absolute;
+    top: 50%;                         /* 🔥 CLAVE */
+    transform: translateY(-50%);     /* 🔥 CLAVE */
+    z-index: 10;
+}
+
+.services-arrow i {
+    font-size: 1.6rem;
+    color: var(--secondary-color);
+}
+
+.services-arrow.left {
+    left: -25px;
+}
+
+.services-arrow.right {
+    right: -25px;
+}
+
+
     </style>
 </head>
 <body>
@@ -1067,7 +1220,14 @@
             <p class="light">Consultoría con enfoque integral, te acompañamos durante todo el proceso</p>
         </div>
         
-        <div class="services">
+	<div class="services-wrapper">
+
+    <button class="services-arrow left">
+        <i class="bi bi-chevron-left"></i>
+    </button>
+
+    <div class="services-slider">
+			
             <div class="service-card">
                 <div class="service-icon">
                     <i class="bi bi-buildings"></i>
@@ -1099,6 +1259,35 @@
                 <h3>ADMINISTRACIÓN Y GESTIÓN</h3>
                 <p class="light">Gestión integral de proyectos urbanos, desde la planificación hasta su comercialización. Ofrecemos herramientas para administrar y vender tu proyecto</p>
             </div>
+			
+			<div class="service-card">
+				<div class="service-icon">
+				<i class="bi bi-map"></i>
+			</div>
+			<h3>SOLUCIONES SIG</h3>
+			<p class="light">
+				Desarrollo de Sistemas de Información Geográfica, mapas interactivos, visualizadores web y análisis espacial para la toma de decisiones
+			</p>
+			</div>
+			
+			<div class="service-card">
+			<div class="service-icon">
+				<i class="bi bi-mortarboard"></i>
+			</div>
+				<h3>CAPACITACIONES</h3>
+			<p class="light">
+				Formación y capacitación en agrimensura, planificación urbana, SIG y herramientas digitales aplicadas al desarrollo urbano
+			</p>
+	</div>
+	
+	  <!-- Flecha derecha -->
+    <button class="services-arrow right" aria-label="Siguiente">
+        <i class="bi bi-chevron-right"></i>
+    </button>
+
+</div>
+
+
         </div>
     </div>
 </section>
@@ -1346,6 +1535,29 @@ if (heroTitle) {
     });
 }
 </script>
+
+<script>
+const servicesSlider = document.querySelector('.services-slider');
+const arrowLeft = document.querySelector('.services-arrow.left');
+const arrowRight = document.querySelector('.services-arrow.right');
+
+const scrollAmount = 320;
+
+arrowLeft.addEventListener('click', () => {
+    servicesSlider.scrollBy({
+        left: -scrollAmount,
+        behavior: 'smooth'
+    });
+});
+
+arrowRight.addEventListener('click', () => {
+    servicesSlider.scrollBy({
+        left: scrollAmount,
+        behavior: 'smooth'
+    });
+});
+</script>
+
 
 </body>
 </html>
