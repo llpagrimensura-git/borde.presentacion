@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mi.Borde</title>
+
+    <!-- Fuente -->
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --verde-principal: #281f16;
+            --verde-claro: #3e2c20;
+            --verde-oscuro: #140e0b;
+            --agua-claro: #e6f2f8;
+            --terracota: #ff6e42;
+            --gris-oscuro: #281f16;
+            --gris-claro: #e6e3de;
+            --blanco: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--gris-claro), var(--agua-claro));
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: linear-gradient(135deg, var(--verde-principal), var(--verde-oscuro));
+            color: var(--blanco);
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            cursor: pointer;
+        }
+
+        .logo-mi {
+            font-weight: 800;
+            font-size: 2rem;
+            color: var(--blanco);
+            line-height: 1;
+        }
+
+        .logo-img {
+            height: 40px;
+            width: auto;
+            filter: invert(1) brightness(2);
+            margin-left: -2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--blanco);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* ===== MAIN ===== */
+        main {
+            min-height: calc(100vh - 120px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .coming-soon h2 {
+            font-size: 2.5rem;
+            color: var(--verde-principal);
+            margin-bottom: 1rem;
+        }
+
+        .coming-soon p {
+            font-size: 1.1rem;
+            color: var(--gris-oscuro);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="nav-container">
+
+            <div class="logo" onclick="window.location.href='index.html'">
+                <span class="logo-mi">mi.</span>
+                <img src="assets/icons/Recurso5.svg" alt="Logo Borde" class="logo-img">
+            </div>
+
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link active">Inicio</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- CONTENIDO -->
+    <main>
+        <div class="coming-soon">
+            <h2>Próximamente</h2>
+            <p>En construcción</p>
+        </div>
+    </main>
+
+</body>
+</html>
